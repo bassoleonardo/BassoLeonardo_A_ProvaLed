@@ -16,17 +16,17 @@ void setup() {
   void lampeggio(){
     for(int i=0; i<4; i++){
     digitalWrite(led3, HIGH);
-    delay(500);
+    delay(1000);
     digitalWrite(led3, LOW);
-    delay(500);
+    delay(1000);
     }
   }
   void lampeggio2(){
     for(int i=0; i<4; i++){
       digitalWrite(led6, HIGH);
-      delay(500);
+      delay(1000);
       digitalWrite(led6, LOW);
-      delay(500);
+      delay(1000);
     }
   }
 void loop() {
@@ -36,7 +36,7 @@ void loop() {
   digitalWrite(led4, LOW);
   digitalWrite(led5, LOW);
   digitalWrite(led6, HIGH);
-  delay(2000);
+  delay(4000);
   lampeggio2();
   digitalWrite(led1, HIGH);
   digitalWrite(led2, HIGH);
@@ -44,14 +44,14 @@ void loop() {
   digitalWrite(led4, LOW);
   digitalWrite(led5, LOW);
   digitalWrite(led6, HIGH);
-  delay(2000); 
+  delay(4000); 
   digitalWrite(led1, LOW);
   digitalWrite(led2, LOW);
   digitalWrite(led3, HIGH);
   digitalWrite(led4, HIGH);
   digitalWrite(led5, LOW);
   digitalWrite(led6, LOW);
-  delay(2000);
+  delay(4000);
   lampeggio();
   digitalWrite(led1, HIGH);
   digitalWrite(led2, HIGH);
@@ -59,5 +59,5 @@ void loop() {
   digitalWrite(led4, LOW); 
   digitalWrite(led5, LOW);
   digitalWrite(led6, HIGH);
-  delay(2000); 
+  delay(4000); 
 }
