@@ -1,3 +1,5 @@
+// Per impostare il numero di lampeggi digitare invio appena lo sketch parte...
+// Digitare il numero che si vuole per impostare il numero di lampeggi da far effettuare al colore verde
 int led1 = 12; // ROSSO
 int led2 = 11; // GALLO
 int led3 = 10; // VERDE
