@@ -22,7 +22,7 @@ void setup() {
 }
 void loop() {
   if (Serial.available() > 0){ // questo comando verifica se la porta seriale è disponibile o meno...
-      Serial.println("Quanti lampeggi vuoi?");
+      Serial.println("Quanti lampeggi vuoi assegnare al semaforo verde?");
       input = Serial.readString();
       nlampeggi = input.toInt();
       while(nlampeggi == 0); // condizione vera per ripetere il ciclo per poi proseguire con l'inserimento dei valori...
