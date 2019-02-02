@@ -21,17 +21,17 @@ void setup() {
   void lampeggio(){
     for(int i=0; i<nlampeggi; i++){
     digitalWrite(led3, LOW);
-    delay(500);
+    delay(200);
     digitalWrite(led3, HIGH);
-    delay(500);
+    delay(200);
     }
   }
   void lampeggio2(){
     for(int i=0; i<nlampeggi; i++){
       digitalWrite(led6, LOW);
-      delay(500);
+      delay(200);
       digitalWrite(led6, HIGH);
-      delay(500);
+      delay(200);
     }
   }
 
@@ -40,9 +40,9 @@ void loop() {
       Serial.print("quanti lampeggi vuoi?");
       imput = Serial.readString();
       nlampeggi = imput.toInt();
+      while(Serial.available() == 0);
       Serial.println(nlampeggi);
     }
-
   digitalWrite(led1, HIGH);
   digitalWrite(led2, LOW);
   digitalWrite(led3, LOW);
