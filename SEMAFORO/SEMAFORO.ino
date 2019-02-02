@@ -15,9 +15,8 @@ void setup() {
   pinMode(led5, OUTPUT);
   pinMode(led6, OUTPUT);
   Serial.begin(9600);
-  Serial.println("seliale attivata");
-  String imput = Serial.readString();
-  int nlampeggi;
+  Serial.println("seriale attivata");
+  imput = Serial.readString();
 }
   void lampeggio(){
     for(int i=0; i<nlampeggi; i++){
@@ -39,10 +38,11 @@ void setup() {
 void loop() {
   if (Serial.available() > 0){
       Serial.print("quanti lampeggi vuoi?");
-      imput = Serial.read();
+      imput = Serial.readString();
       nlampeggi = imput.toInt();
+      Serial.println(nlampeggi);
     }
-  while(nl
+
   digitalWrite(led1, HIGH);
   digitalWrite(led2, LOW);
   digitalWrite(led3, LOW);
