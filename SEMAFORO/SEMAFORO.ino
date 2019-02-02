@@ -36,14 +36,12 @@ void setup() {
   }
 
 void loop() {
-  if (Serial.available() == 0){
-    if (Serial.available() > 0){
+  if (Serial.available() > 0){
       Serial.print("quanti lampeggi vuoi?");
       imput = Serial.readString();
       nlampeggi = imput.toInt();
       while(Serial.available() == 0);
-      Serial.println(nlampeggi)
-      }
+      Serial.println(nlampeggi);
     }
   digitalWrite(led1, HIGH);
   digitalWrite(led2, LOW);
