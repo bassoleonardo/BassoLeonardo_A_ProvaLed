@@ -37,7 +37,7 @@ void loop() {
       delay_rosso = input.toInt();
       Serial.print("Quanto tempo vuoi far durare il giallo?")
       input = Serial.readString();
-      delay_giallo = input.toInt();s
+      delay_giallo = input.toInt();
       Serial.println(nlampeggi);
   }
   digitalWrite(led1, HIGH);
@@ -54,14 +54,14 @@ void loop() {
   digitalWrite(led4, LOW);
   digitalWrite(led5, HIGH);
   digitalWrite(led6, LOW);
-  delay(2000); 
+  delay(delay_giallo); 
   digitalWrite(led1, LOW);
   digitalWrite(led2, LOW);
   digitalWrite(led3, HIGH);
   digitalWrite(led4, HIGH);
   digitalWrite(led5, LOW);
   digitalWrite(led6, LOW);
-  delay(2000);
+  delay(delay_rosso);
   lampeggio();
   digitalWrite(led1, LOW);
   digitalWrite(led2, HIGH);
@@ -69,22 +69,22 @@ void loop() {
   digitalWrite(led4, HIGH); 
   digitalWrite(led5, HIGH);
   digitalWrite(led6, LOW);
-  delay(2000); 
+  delay(delay_giallo); 
 }
 // ------- metodi personalizzati ------------ //
   void lampeggio(){
     for(int i=0; i<nlampeggi; i++){
     digitalWrite(led3, LOW);
-    delay(200);
+    delay(delay_lampeggi);
     digitalWrite(led3, HIGH);
-    delay(200);
+    delay(delay_lampeggi);
     }
   }
   void lampeggio2(){
     for(int i=0; i<nlampeggi; i++){
       digitalWrite(led6, LOW);
-      delay(200);
+      delay(delay_lampeggi);
       digitalWrite(led6, HIGH);
-      delay(200);
+      delay(delay_lampeggi);
     }
   }
