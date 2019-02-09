@@ -9,6 +9,8 @@ int led6 = 5;  // VERDE
 String input;
 int nlampeggi;
 int tempo_lampeggi;
+int delay_rosso;
+int delay_giallo;
 void setup() {
   // put your setup code here, to run once:
   pinMode(led1, OUTPUT);
@@ -26,10 +28,16 @@ void loop() {
       Serial.println("Quanti lampeggi vuoi assegnare al semaforo verde?");
       input = Serial.readString();
       nlampeggi = input.toInt();
+      while(nlampeggi == 0); // condizione vera per ripetere il ciclo per poi proseguire con l'inserimento dei valori...
       Serial.print("E quanto tempo intendi assegnare ad ogni lampeggio?");
       input = Serial.readString();
       delay_lampeggi = input.toInt();
-      while(nlampeggi == 0); // condizione vera per ripetere il ciclo per poi proseguire con l'inserimento dei valori...
+      Serial.print("Quanto tempo vuoi far durare il semaforo rosso?");
+      input = Serial.readString();
+      delay_rosso = input.toInt();
+      Serial.print("Quanto tempo vuoi far durare il giallo?")
+      input = Serial.readString();
+      delay_giallo = input.toInt();s
       Serial.println(nlampeggi);
   }
   digitalWrite(led1, HIGH);
@@ -38,7 +46,7 @@ void loop() {
   digitalWrite(led4, LOW);
   digitalWrite(led5, LOW);
   digitalWrite(led6, HIGH);
-  delay(2000);
+  delay(delay_rosso);
   lampeggio2();
   digitalWrite(led1, HIGH);
   digitalWrite(led2, HIGH);
