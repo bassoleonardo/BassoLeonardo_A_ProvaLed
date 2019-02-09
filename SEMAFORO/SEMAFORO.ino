@@ -8,7 +8,7 @@ int led5 = 6;  // GIALLO
 int led6 = 5;  // VERDE
 String input;
 int nlampeggi;
-int tempo_lampeggi;
+int delay_lampeggi;
 int delay_rosso;
 int delay_giallo;
 void setup() {
@@ -24,22 +24,44 @@ void setup() {
   input = Serial.readString();
 }
 void loop() {
-  if (Serial.available() > 0){ // questo comando verifica se la porta seriale è disponibile o meno...
+  if (Serial.available() > 0)  // questo comando verifica se la porta seriale è disponibile o meno...
+  {                  
       Serial.println("Quanti lampeggi vuoi assegnare al semaforo verde?");
-      input = Serial.readString();
+      input = Serial.read();
       nlampeggi = input.toInt();
       while(nlampeggi == 0); // condizione vera per ripetere il ciclo per poi proseguire con l'inserimento dei valori...
-      Serial.print("E quanto tempo intendi assegnare ad ogni lampeggio?");
-      input = Serial.readString();
+      Serial.print(nlampeggi);
+      Serial.print("");
+  }
+  delay (100);
+  if (Serial.available() > 0)
+  {
+    Serial.print("E quanto tempo intendi assegnare ad ogni lampeggio?");
+      input = Serial.read();
       delay_lampeggi = input.toInt();
-      Serial.print("Quanto tempo vuoi far durare il semaforo rosso?");
-      input = Serial.readString();
+      while(delay_lampeggi == 0);
+      Serial.print(delay_lampeggi);
+      Serial.print("");
+  }
+  delay(100);
+  if (Serial.available() > 0)
+  {
+    Serial.print("Quanto tempo vuoi far durare il semaforo rosso?");
+      input = Serial.read();
       delay_rosso = input.toInt();
-      Serial.print("Quanto tempo vuoi far durare il giallo?")
+      while(delay_rosso == 0);
+      Serial.print(delay_rosso);
+      Serial.print("");
+  }
+  delay(100);
+  if (Serial.available() > 0)
+  {
+    Serial.print("Quanto tempo vuoi far durare il giallo?"); 
       input = Serial.readString();
       delay_giallo = input.toInt();
-      Serial.println(nlampeggi);
+      while(delay_giallo == 0);
   }
+  delay(100);
   digitalWrite(led1, HIGH);
   digitalWrite(led2, LOW);
   digitalWrite(led3, LOW);
